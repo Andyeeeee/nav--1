@@ -14,7 +14,7 @@
 
 <body>
   <ul class="list-side">
-    <li><a href="a.html">About</a></li>
+    <li><a href="compoment/a.html">About</a></li>
     <li><a href="b.html">News</a></li>
     <li><a href="c.html">Product</a></li>
     <li><a href="http://www.ucamc.com/" target="_blank">UCAMC</a></li>
@@ -49,7 +49,7 @@
     crossorigin='anonymous'></script>
   <script>
     $(document).ready(function () {
-      $.get("a.html", function (data) { //初始將a.html include div#iframe
+      $.get("compoment/a.html", function (data) { //初始將a.html include div#iframe
         $("#iframe").html(data);
       });
       $(function () {
