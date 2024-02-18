@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="list-side">
+    <li><a href="a.html">About</a></li>
+    <li><a href="b.html">News</a></li>
+    <li><a href="c.html">Product</a></li>
+    <li><a href="http://www.ucamc.com/" target="_blank">UCAMC</a></li>
+  </ul>
+
+  <div id="iframe" style="background-color: cadetblue;">
+    <!--jquery 插入html 位址-->
+  </div>
+  <div class="footer">
+    <ul>
+      <li>2</li>
+      <li>2</li>
+      <li>2</li>
+      <li>2</li>
+      <li>2</li>
+      <li>2</li>
+      <li>2</li>
+      <li>2</li>
+      <li>2</li>
+      <li>2</li>
+      <li>2</li>
+      <li>2</li>
+      <li>2</li>
+      <li>2</li>
+      <li>2</li>
+      <li>2</li>
+      <li>2</li>
+    </ul>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'
+    integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=='
+    crossorigin='anonymous'></script>
+  <script>
+    $(document).ready(function () {
+      $.get("a.html", function (data) { //初始將a.html include div#iframe
+        $("#iframe").html(data);
+      });
+      $(function () {
+        $('.list-side li').click(function () {
+          // 找出 li 中的超連結 href(#id)
+          var $this = $(this),
+            _clickTab = $this.find('a').attr('href'); // 找到連結a中的href標籤值
+          if ("-1" == _clickTab.search("http://")) { //不為http://執行下列程式
+            $.get(_clickTab, function (data) {
+              $("#iframe").html(data);
+            });
+            return false
+          }
+        })
+      })
+    });
+  </script>
+</body>
+
+</html>
